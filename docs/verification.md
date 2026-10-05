@@ -1,0 +1,7 @@
+# Local verification — 5 October 2026
+
+Real source archives were downloaded from the author mirror and SHA-256 verified. The full CNN and transfer-learning experiment ran on CPU. Six tests pass with the real trained artifact, including a valid API image and invalid base64 rejection; no-artifact CI runs have five passing tests and one explicitly skipped real-artifact check. Ruff lint and format passed. The evidence notebook executed and recomputed macro-F1 from stored test predictions. Confusion matrix and Grad-CAM were inspected; the latter retains a confident error and a thumb/background activation.
+
+A separate clean Python 3.12 environment was installed from pinned dependencies. A local Git clone downloaded all three archives and pretrained weights independently, then ran the complete training/calibration/test pipeline. Selected architecture, all validation/test/robustness metrics, per-image test probabilities and trained state tensors reproduce within atol=rtol=1e-6. No raw images, feature caches or model artifacts were copied into the clone. pip check passed. API TestClient emits an httpx deprecation warning; requests and assertions still pass.
+
+Source ZIP excludes raw photos and model weights; these remain saved in the original local repository. Reproduction generates them. No external deployment, independent-farm validation or GitHub CI run is claimed. Publish this repository only on its daily turn, then verify the actual remote CI and record it here.
