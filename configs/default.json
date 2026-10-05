@@ -1,0 +1,1 @@
+{"seed": 42, "threads": 2, "batch_size": 32, "cnn_epochs": 8, "head_epochs": 50, "image_size": 160}
