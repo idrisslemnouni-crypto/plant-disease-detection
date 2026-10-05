@@ -1,0 +1,311 @@
+{
+  "config": {
+    "seed": 42,
+    "threads": 2,
+    "batch_size": 32,
+    "cnn_epochs": 8,
+    "head_epochs": 50,
+    "image_size": 160
+  },
+  "validation": {
+    "small_cnn": {
+      "accuracy": 0.6766917293233082,
+      "macro_f1": 0.6766767715043578,
+      "log_loss": 0.764884889125824,
+      "multiclass_brier": 0.45821816047061936,
+      "ece_10_bins": 0.0584555295176972
+    },
+    "mobilenet_transfer": {
+      "accuracy": 0.9097744360902256,
+      "macro_f1": 0.910752067149884,
+      "log_loss": 0.28506356477737427,
+      "multiclass_brier": 0.15721876817340405,
+      "ece_10_bins": 0.04395950199069831
+    }
+  },
+  "selected_on_validation": "mobilenet_transfer",
+  "test_uncalibrated": {
+    "small_cnn": {
+      "accuracy": 0.6484375,
+      "macro_f1": 0.6364847059799558,
+      "log_loss": 0.7775460481643677,
+      "multiclass_brier": 0.45458964209627895,
+      "ece_10_bins": 0.09673618152737619
+    },
+    "mobilenet_transfer": {
+      "accuracy": 0.875,
+      "macro_f1": 0.8774744711535352,
+      "log_loss": 0.33936432003974915,
+      "multiclass_brier": 0.17639700385274645,
+      "ece_10_bins": 0.05318985413759944
+    }
+  },
+  "test_calibrated": {
+    "accuracy": 0.875,
+    "macro_f1": 0.8774744711535352,
+    "log_loss": 0.3174269497394562,
+    "multiclass_brier": 0.17577086565445674,
+    "ece_10_bins": 0.049133530352264684
+  },
+  "test_blur_darkness_check": {
+    "accuracy": 0.765625,
+    "macro_f1": 0.7704545454545455,
+    "log_loss": 0.49004679918289185,
+    "multiclass_brier": 0.2960597192774521,
+    "ece_10_bins": 0.08866247930563984
+  },
+  "temperature_from_validation": 1.2862001016680393,
+  "history": {
+    "small_cnn": [
+      {
+        "epoch": 1,
+        "validation_macro_f1": 0.5583690676509435
+      },
+      {
+        "epoch": 2,
+        "validation_macro_f1": 0.5934731934731935
+      },
+      {
+        "epoch": 3,
+        "validation_macro_f1": 0.6188836724047991
+      },
+      {
+        "epoch": 4,
+        "validation_macro_f1": 0.6058605002284602
+      },
+      {
+        "epoch": 5,
+        "validation_macro_f1": 0.6528902634498794
+      },
+      {
+        "epoch": 6,
+        "validation_macro_f1": 0.6584366166557948
+      },
+      {
+        "epoch": 7,
+        "validation_macro_f1": 0.6556719559487839
+      },
+      {
+        "epoch": 8,
+        "validation_macro_f1": 0.6766767715043578
+      }
+    ],
+    "mobilenet_transfer": [
+      {
+        "epoch": 1,
+        "validation_macro_f1": 0.8424807351263103
+      },
+      {
+        "epoch": 2,
+        "validation_macro_f1": 0.8734948065079511
+      },
+      {
+        "epoch": 3,
+        "validation_macro_f1": 0.872261514576505
+      },
+      {
+        "epoch": 4,
+        "validation_macro_f1": 0.8723066215470276
+      },
+      {
+        "epoch": 5,
+        "validation_macro_f1": 0.8673750503474462
+      },
+      {
+        "epoch": 6,
+        "validation_macro_f1": 0.8740845043439945
+      },
+      {
+        "epoch": 7,
+        "validation_macro_f1": 0.8730634682658671
+      },
+      {
+        "epoch": 8,
+        "validation_macro_f1": 0.9019770879526977
+      },
+      {
+        "epoch": 9,
+        "validation_macro_f1": 0.8950517198026584
+      },
+      {
+        "epoch": 10,
+        "validation_macro_f1": 0.8888215178597086
+      },
+      {
+        "epoch": 11,
+        "validation_macro_f1": 0.9026623736324609
+      },
+      {
+        "epoch": 12,
+        "validation_macro_f1": 0.8880927128333808
+      },
+      {
+        "epoch": 13,
+        "validation_macro_f1": 0.8890698547460221
+      },
+      {
+        "epoch": 14,
+        "validation_macro_f1": 0.8944288826641769
+      },
+      {
+        "epoch": 15,
+        "validation_macro_f1": 0.8879016967864257
+      },
+      {
+        "epoch": 16,
+        "validation_macro_f1": 0.8817955805907612
+      },
+      {
+        "epoch": 17,
+        "validation_macro_f1": 0.8887643946467475
+      },
+      {
+        "epoch": 18,
+        "validation_macro_f1": 0.902284706649033
+      },
+      {
+        "epoch": 19,
+        "validation_macro_f1": 0.8798602812758526
+      },
+      {
+        "epoch": 20,
+        "validation_macro_f1": 0.8652917963262791
+      },
+      {
+        "epoch": 21,
+        "validation_macro_f1": 0.9022902082793189
+      },
+      {
+        "epoch": 22,
+        "validation_macro_f1": 0.8795539666326183
+      },
+      {
+        "epoch": 23,
+        "validation_macro_f1": 0.8952190571380977
+      },
+      {
+        "epoch": 24,
+        "validation_macro_f1": 0.8961857665842485
+      },
+      {
+        "epoch": 25,
+        "validation_macro_f1": 0.887613749170742
+      },
+      {
+        "epoch": 26,
+        "validation_macro_f1": 0.8891633761938511
+      },
+      {
+        "epoch": 27,
+        "validation_macro_f1": 0.9027581613788511
+      },
+      {
+        "epoch": 28,
+        "validation_macro_f1": 0.9099856082614703
+      },
+      {
+        "epoch": 29,
+        "validation_macro_f1": 0.910752067149884
+      },
+      {
+        "epoch": 30,
+        "validation_macro_f1": 0.896316189706123
+      },
+      {
+        "epoch": 31,
+        "validation_macro_f1": 0.8780959607718022
+      },
+      {
+        "epoch": 32,
+        "validation_macro_f1": 0.8803098450774614
+      },
+      {
+        "epoch": 33,
+        "validation_macro_f1": 0.9033542253656105
+      },
+      {
+        "epoch": 34,
+        "validation_macro_f1": 0.9027581613788511
+      },
+      {
+        "epoch": 35,
+        "validation_macro_f1": 0.881600200217544
+      },
+      {
+        "epoch": 36,
+        "validation_macro_f1": 0.8729765372520036
+      },
+      {
+        "epoch": 37,
+        "validation_macro_f1": 0.8880927128333808
+      },
+      {
+        "epoch": 38,
+        "validation_macro_f1": 0.8956355155755454
+      },
+      {
+        "epoch": 39,
+        "validation_macro_f1": 0.9035585313754226
+      },
+      {
+        "epoch": 40,
+        "validation_macro_f1": 0.8867593073093851
+      },
+      {
+        "epoch": 41,
+        "validation_macro_f1": 0.8520676473995135
+      },
+      {
+        "epoch": 42,
+        "validation_macro_f1": 0.896316189706123
+      },
+      {
+        "epoch": 43,
+        "validation_macro_f1": 0.8872731106127691
+      },
+      {
+        "epoch": 44,
+        "validation_macro_f1": 0.8558154854919264
+      },
+      {
+        "epoch": 45,
+        "validation_macro_f1": 0.9018518518518519
+      },
+      {
+        "epoch": 46,
+        "validation_macro_f1": 0.9021915972820365
+      },
+      {
+        "epoch": 47,
+        "validation_macro_f1": 0.872261514576505
+      },
+      {
+        "epoch": 48,
+        "validation_macro_f1": 0.8670153092045082
+      },
+      {
+        "epoch": 49,
+        "validation_macro_f1": 0.8743041177823786
+      },
+      {
+        "epoch": 50,
+        "validation_macro_f1": 0.8942617367872931
+      }
+    ]
+  },
+  "counts": {
+    "test": 128,
+    "train": 1034,
+    "validation": 133
+  },
+  "model_sha256": "c58b9f260e8d83fac92a9629e301c679af90e99c170f306892b2819cb8eefcb7",
+  "versions": {
+    "torch": "2.7.0+cpu",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "Supplied split has no plant/farm IDs; independence beyond exact hashes is unproven",
+    "Altered test images are a robustness check, not external-domain validation",
+    "Three bean classes only; softmax confidence does not detect other diseases or species"
+  ]
+}

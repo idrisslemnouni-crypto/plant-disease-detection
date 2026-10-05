@@ -1,0 +1,33 @@
+{
+  "angular_leaf_spot": {
+    "precision": 0.875,
+    "recall": 0.813953488372093,
+    "f1-score": 0.8433734939759037,
+    "support": 43.0
+  },
+  "bean_rust": {
+    "precision": 0.7755102040816326,
+    "recall": 0.8837209302325582,
+    "f1-score": 0.8260869565217391,
+    "support": 43.0
+  },
+  "healthy": {
+    "precision": 1.0,
+    "recall": 0.9285714285714286,
+    "f1-score": 0.9629629629629629,
+    "support": 42.0
+  },
+  "accuracy": 0.875,
+  "macro avg": {
+    "precision": 0.8835034013605442,
+    "recall": 0.8754152823920265,
+    "f1-score": 0.8774744711535352,
+    "support": 128.0
+  },
+  "weighted avg": {
+    "precision": 0.8825932716836735,
+    "recall": 0.875,
+    "f1-score": 0.8768065923112741,
+    "support": 128.0
+  }
+}

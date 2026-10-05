@@ -64,3 +64,12 @@ def test_real_model_inference():
     p = predict(image.read_bytes(), root / "models/selected.pt")
     assert len(p["probabilities"]) == 3
     assert abs(sum(p["probabilities"].values()) - 1) < 1e-6
+    import base64
+
+    client = TestClient(api.app)
+    response = client.post(
+        "/predict", json={"image_base64": base64.b64encode(image.read_bytes()).decode()}
+    )
+    assert response.status_code == 200
+    assert response.json()["label"] == p["label"]
+    assert client.post("/predict", json={"image_base64": "invalid!"}).status_code == 422

@@ -1,0 +1,10 @@
+{
+  "retained_counts": {
+    "test": 128,
+    "train": 1034,
+    "validation": 133
+  },
+  "exact_duplicates_removed": [],
+  "cross_split_dhash_distance_le_5": [],
+  "limitation": "Plant, farm and photographer identifiers unavailable; hash screening does not prove independent plants"
+}

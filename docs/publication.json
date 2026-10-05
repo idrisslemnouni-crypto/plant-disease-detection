@@ -1,0 +1,21 @@
+{
+  "description": "Real bean-leaf CNN vs MobileNet benchmark, calibrated probabilities, Grad-CAM and strict local API",
+  "topics": [
+    "agriculture",
+    "computer-vision",
+    "deep-learning",
+    "pytorch",
+    "fastapi",
+    "transfer-learning"
+  ],
+  "issues": [
+    {
+      "title": "Validate on farm-disjoint external field photos",
+      "body": "Plant/farm identifiers are unavailable in the current supplied split. Collect independently licensed, farm-disjoint field images and evaluate the frozen model before claiming deployment generalization."
+    },
+    {
+      "title": "Evaluate unknown-class abstention",
+      "body": "The current softmax classifier has only three labels and cannot reliably reject other crops or diseases. Add an independently evaluated unknown-class set, select abstention on validation and report coverage versus risk."
+    }
+  ]
+}
