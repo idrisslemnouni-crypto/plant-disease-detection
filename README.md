@@ -67,3 +67,8 @@ Open `/docs` for the local API. POST `/predict` accepts `{"image_base64":"..."}`
 Only three bean conditions, one supplied dataset, no plant/farm metadata, no external farm holdout or expert-reviewed diagnosis. Same-image transformations do not substitute for external testing. Add farm-disjoint field data and additional disease/unknown classes, estimate sampling uncertainty, and validate abstention before using the output for a decision. Do not tune the existing test after seeing these results.
 
 Developed with AI assistance. All displayed metrics and images are produced by executed code. Daily public publication and remote CI verification are still pending.
+
+
+## GitHub publication
+
+[Public repository](https://github.com/idrisslemnouni-crypto/plant-disease-detection) · [Current CI results](https://github.com/idrisslemnouni-crypto/plant-disease-detection/actions). Published following the user's explicit 5 October 2026 request to release the prepared portfolio together. Earlier local-verification notes describe the pre-publication checkpoint. Raw sources and trained artifacts remain excluded from Git; reproduction commands regenerate them.
