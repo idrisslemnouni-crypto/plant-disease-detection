@@ -60,15 +60,17 @@ python -m uvicorn app.api:app --host 127.0.0.1 --port 8001
 
 Open `/docs` for the local API. POST `/predict` accepts `{"image_base64":"..."}`, rejects extra fields, invalid images, unsupported dimensions and images over 3 MB, and returns all three probabilities. `/health` returns 503 until the local artifact exists. State dictionaries are loaded with `weights_only=True`. Training downloads approximately 180 MB of source archives and 10 MB of pretrained weights. Internet is required for a first reproduction. Source archive ZIPs and trained weights are excluded from Git and the release source ZIP.
 
+Audit, training and inference share EXIF-oriented RGB pixels, so a smartphone photo is read in its display orientation. Multiframe uploads are rejected rather than silently classifying their first frame. The 6 October input audit inspected all 1,295 cached source photos: every photo had orientation 1 or no orientation tag and a single frame. This correction preserves their original model inputs and does not introduce a new accuracy or external-domain claim.
+
 `src/plantvision`: acquisition/audit, architectures, training, inference. `app`: FastAPI. `configs`: fixed experiment. `reports`: executed outputs. `notebooks`: executed evidence inspection. `tests`: mathematical, image and service contracts. See [data notes](data/README.md), [verification](docs/verification.md), [French learning guide](docs/learning-guide.md), [interview notes](docs/interview-notes.md) and [design](docs/design.md).
 
 ## Limits and improvements
 
 Only three bean conditions, one supplied dataset, no plant/farm metadata, no external farm holdout or expert-reviewed diagnosis. Same-image transformations do not substitute for external testing. Add farm-disjoint field data and additional disease/unknown classes, estimate sampling uncertainty, and validate abstention before using the output for a decision. Do not tune the existing test after seeing these results.
 
-Developed with AI assistance. All displayed metrics and images are produced by executed code. Daily public publication and remote CI verification are still pending.
+Developed with AI assistance. All displayed metrics and images are produced by executed code. The 6 October input-contract checks were performed locally; GitHub Actions records the remote status of each pushed revision.
 
 
 ## GitHub publication
 
-[Public repository](https://github.com/idrisslemnouni-crypto/plant-disease-detection) · [Current CI results](https://github.com/idrisslemnouni-crypto/plant-disease-detection/actions). Published following the user's explicit 5 October 2026 request to release the prepared portfolio together. Earlier local-verification notes describe the pre-publication checkpoint. Raw sources and trained artifacts remain excluded from Git; reproduction commands regenerate them.
+[Public repository](https://github.com/idrisslemnouni-crypto/plant-disease-detection) · [GitHub Actions history](https://github.com/idrisslemnouni-crypto/plant-disease-detection/actions). Published following the user's explicit 5 October 2026 request to release the prepared portfolio together. Earlier local-verification notes describe the pre-publication checkpoint. Raw sources and trained artifacts remain excluded from Git; reproduction commands regenerate them.

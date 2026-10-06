@@ -10,6 +10,8 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
+from plantvision.images import canonical_rgb
+
 CLASSES = ["angular_leaf_spot", "bean_rust", "healthy"]
 
 
@@ -35,12 +37,12 @@ def download(root: Path) -> None:
 
 
 def pixel_hash(image: Image.Image) -> str:
-    rgb = image.convert("RGB")
+    rgb = canonical_rgb(image)
     return hashlib.sha256(str(rgb.size).encode() + rgb.tobytes()).hexdigest()
 
 
 def dhash(image: Image.Image) -> int:
-    a = np.asarray(image.convert("L").resize((9, 8)))
+    a = np.asarray(canonical_rgb(image).convert("L").resize((9, 8)))
     return int.from_bytes(np.packbits(a[:, 1:] > a[:, :-1]).tobytes(), "big")
 
 

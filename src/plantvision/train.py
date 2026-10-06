@@ -27,6 +27,7 @@ from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
 from plantvision.data import CLASSES, audit, download
+from plantvision.images import canonical_rgb
 from plantvision.models import build, gradcam, transform
 
 
@@ -59,7 +60,7 @@ def tensors(root, frame, size):
     values = []
     for path in frame.path:
         with Image.open(root / path) as image:
-            values.append(tr(image.convert("RGB")))
+            values.append(tr(canonical_rgb(image)))
     return torch.stack(values), torch.tensor(frame.label.to_numpy(), dtype=torch.long)
 
 
@@ -153,7 +154,7 @@ def run(root: Path):
     for path in split["test"].path:
         with Image.open(root / path) as image:
             altered = ImageEnhance.Brightness(
-                image.convert("RGB").filter(ImageFilter.GaussianBlur(2))
+                canonical_rgb(image).filter(ImageFilter.GaussianBlur(2))
             ).enhance(0.7)
             stress_x.append(tr(altered))
     stress = metrics(ty.numpy(), logits(selected, torch.stack(stress_x)), temperature)
@@ -216,7 +217,7 @@ def run(root: Path):
     for label in range(3):
         index = int(np.flatnonzero(ty.numpy() == label)[0])
         with Image.open(root / split["test"].path.iloc[index]) as image:
-            image = image.convert("RGB").resize((160, 160))
+            image = canonical_rgb(image).resize((160, 160))
             axes[label, 0].imshow(image)
             axes[label, 0].set_title("True: " + CLASSES[label])
             cam = gradcam(selected, tx[index : index + 1], int(p[index].argmax()))

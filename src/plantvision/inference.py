@@ -8,6 +8,7 @@ import torch
 from PIL import Image
 
 from plantvision.data import CLASSES
+from plantvision.images import canonical_rgb
 from plantvision.models import build, transform
 from plantvision.train import probabilities
 
@@ -19,7 +20,7 @@ def decode_image(content: bytes):
         with Image.open(io.BytesIO(content)) as image:
             if image.width > 4096 or image.height > 4096 or image.width < 16 or image.height < 16:
                 raise ValueError("Unsupported image dimensions")
-            return image.convert("RGB")
+            return canonical_rgb(image)
     except (OSError, Image.DecompressionBombError) as exc:
         raise ValueError("Invalid image") from exc
 
